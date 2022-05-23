@@ -1,15 +1,17 @@
 package com.plcoding.cleanarchformvalidation.domain.use_case
 
+import com.plcoding.cleanarchformvalidation.data.repositories.Response
+
 class ValidateTerms {
 
-    fun execute(acceptedTerms: Boolean): ValidationResult {
+    fun execute(acceptedTerms: Boolean): Response {
         if(!acceptedTerms) {
-            return ValidationResult(
+            return Response(
                 successful = false,
                 errorMessage = "Please accept the terms"
             )
         }
-        return ValidationResult(
+        return Response(
             successful = true
         )
     }

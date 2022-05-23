@@ -7,14 +7,12 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.plcoding.cleanarchformvalidation.ui.theme.CleanArchFormValidationTheme
@@ -30,28 +28,55 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    val viewModel = viewModel<MainViewModel>()
+                    val viewModel = viewModel<RegisterationViewModel>()
                     val state = viewModel.state
                     val context = LocalContext.current
                     LaunchedEffect(key1 = context) {
                         viewModel.validationEvents.collect { event ->
                             when (event) {
-                                is MainViewModel.ValidationEvent.Success -> {
+                                is RegisterationViewModel.ValidationEvent.Success -> {
                                     Toast.makeText(
                                         context,
-                                        "Registration successful",
+                                        "Validation Successful!",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                            }
+                        }
+                    }
+
+                    m@m
+                        viewModel.registrationEvents.collect{ event ->
+                            when(event) {
+                                true -> {
+                                    Toast.makeText(
+                                        context,
+                                        "Registration Successful!",
+                                        Toast.LENGTH_LONG
+                                    ).show()
+                                }
+                                false -> {
+                                    Toast.makeText(
+                                        context,
+                                        "Registration Error!",
                                         Toast.LENGTH_LONG
                                     ).show()
                                 }
                             }
                         }
                     }
+
                     Column(
                         modifier = Modifier
                             .fillMaxSize()
                             .padding(32.dp),
                         verticalArrangement = Arrangement.Center
                     ) {
+
+                        Text(text = "SMD : CLEAN ARCHITECTURE",
+                            modifier = Modifier.align(Alignment.CenterHorizontally)
+                        )
+                        Spacer(modifier = Modifier.height(20.dp))
                         TextField(
                             value = state.email,
                             onValueChange = {

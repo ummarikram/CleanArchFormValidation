@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "200413322855",
+    "project_id": "cleanarchformvalidation",
+    "storage_bucket": "cleanarchformvalidation.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:200413322855:android:76c897c505cdbe79bd3ec2",
+        "android_client_info": {
+          "package_name": "com.plcoding.cleanarchformvalidation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "200413322855-megqfteefehj1emu8m9c8mluml9chs1l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0XvqUjYQ5IatOkkmntP5kuuklFE1UTHY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "200413322855-megqfteefehj1emu8m9c8mluml9chs1l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
